@@ -1,14 +1,3 @@
 {
-  "rewrites": [
-    {
-      "source": "/",
-      "has": [
-        {
-          "type": "host",
-          "value": "demo.kisag.co"
-        }
-      ],
-      "destination": "/dashboard"
-    }
-  ]
+  "cleanUrls": true
 }

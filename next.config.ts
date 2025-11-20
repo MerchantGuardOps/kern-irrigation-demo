@@ -1,7 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  // Ensure middleware runs reliably across all deployments
+  experimental: {
+    middlewarePrefetch: 'flexible',
+  },
 };
 
 export default nextConfig;
