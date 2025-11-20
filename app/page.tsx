@@ -6,10 +6,10 @@ export default function Home() {
     <div className="min-h-screen bg-white">
       {/* Mobile-optimized header with 48x48px touch targets */}
       <header className="bg-gradient-to-r from-green-700 to-green-600 text-white sticky top-0 z-50 shadow-lg">
-        <div className="max-w-7xl mx-auto px-4 py-3 md:py-4">
+        <div className="max-w-7xl mx-auto px-4 py-4 md:py-5">
           <div className="flex items-center justify-between gap-4">
             <div className="flex items-center gap-3 md:gap-4 flex-shrink-0">
-              <img src="/logo.png" alt="Kern Irrigation Systems" className="h-12 md:h-14 w-auto object-contain" />
+              <img src="/logo.png" alt="Kern Irrigation Systems" className="h-16 md:h-20 w-auto object-contain" style={{maxWidth: '320px'}} />
               <div className="hidden lg:block border-l-2 border-white/30 pl-4">
                 <p className="text-green-100 text-xs uppercase tracking-wider font-semibold">Since 1984</p>
               </div>

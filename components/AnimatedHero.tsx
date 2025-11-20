@@ -167,6 +167,112 @@ export default function AnimatedHero() {
             </p>
           </div>
 
+          {/* EPIC Animated Field Visualization */}
+          <div className="flex flex-col lg:flex-row items-center gap-12 mb-16 max-w-7xl mx-auto">
+            {/* Left: Animated Field System */}
+            <div className="w-full lg:w-1/2 relative">
+              <div className="relative w-full aspect-square max-w-md mx-auto">
+                {/* Center Core - Field AI Brain */}
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center shadow-2xl shadow-green-500/50 animate-pulse-glow">
+                  <div className="text-center">
+                    <svg className="w-16 h-16 text-white mb-2 animate-pulse-soft" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                    </svg>
+                    <div className="text-white text-xs font-bold">AI Core</div>
+                  </div>
+                  <div className="absolute inset-0 border-2 border-white/30 rounded-2xl animate-ping-slow"></div>
+                </div>
+
+                {/* Orbiting Field Sensors */}
+                {[
+                  { name: 'Soil', icon: 'M3 12h18M3 6h18M3 18h18', color: 'amber', angle: 0 },
+                  { name: 'Weather', icon: 'M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z', color: 'blue', angle: 72 },
+                  { name: 'Water', icon: 'M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343', color: 'cyan', angle: 144 },
+                  { name: 'Yield', icon: 'M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z', color: 'green', angle: 216 },
+                  { name: 'Crop', icon: 'M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1', color: 'emerald', angle: 288 }
+                ].map((sensor, i) => (
+                  <div
+                    key={sensor.name}
+                    className="absolute top-1/2 left-1/2"
+                    style={{
+                      animation: `orbit ${20 + i * 2}s linear infinite`,
+                      animationDelay: `${i * 0.8}s`
+                    }}
+                  >
+                    <div className={`w-20 h-20 bg-${sensor.color}-500 rounded-xl shadow-lg shadow-${sensor.color}-500/50 flex flex-col items-center justify-center transform -translate-x-10 -translate-y-10 hover:scale-110 transition-transform backdrop-blur-sm bg-opacity-90`}>
+                      <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={sensor.icon} />
+                      </svg>
+                      <div className="text-white text-xs font-semibold mt-1">{sensor.name}</div>
+                    </div>
+                  </div>
+                ))}
+
+                {/* Data Connection Lines */}
+                <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 400 400">
+                  {[0, 72, 144, 216, 288].map((angle, i) => {
+                    const rad = (angle * Math.PI) / 180;
+                    const x = 200 + Math.cos(rad) * 120;
+                    const y = 200 + Math.sin(rad) * 120;
+                    return (
+                      <line
+                        key={i}
+                        x1="200"
+                        y1="200"
+                        x2={x}
+                        y2={y}
+                        stroke="rgba(16, 185, 129, 0.3)"
+                        strokeWidth="2"
+                        strokeDasharray="4 4"
+                        className="animate-pulse-flow"
+                        style={{ animationDelay: `${i * 0.3}s` }}
+                      />
+                    );
+                  })}
+                </svg>
+
+                {/* Floating Data Particles */}
+                {[...Array(15)].map((_, i) => (
+                  <div
+                    key={`particle-${i}`}
+                    className="absolute w-2 h-2 bg-green-400 rounded-full opacity-60"
+                    style={{
+                      left: `${Math.random() * 100}%`,
+                      top: `${Math.random() * 100}%`,
+                      animation: `float ${Math.random() * 3 + 2}s ease-in-out infinite`,
+                      animationDelay: `${Math.random() * 2}s`
+                    }}
+                  />
+                ))}
+              </div>
+            </div>
+
+            {/* Right: System Description */}
+            <div className="w-full lg:w-1/2 text-center lg:text-left">
+              <h3 className="text-3xl md:text-4xl font-bold text-white mb-6">
+                50 Years of Irrigation Data<br />
+                <span className="text-green-400">Powered by AI</span>
+              </h3>
+              <p className="text-lg text-green-100 mb-8 leading-relaxed">
+                Our AI continuously analyzes data from soil sensors, weather stations, satellite imagery, and historical yields to provide precise irrigation recommendations for your specific field conditions.
+              </p>
+              <div className="space-y-4">
+                <div className="flex items-center gap-4">
+                  <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
+                  <span className="text-white">Real-time field monitoring</span>
+                </div>
+                <div className="flex items-center gap-4">
+                  <div className="w-3 h-3 bg-blue-400 rounded-full animate-pulse" style={{ animationDelay: '0.5s' }}></div>
+                  <span className="text-white">Predictive irrigation schedules</span>
+                </div>
+                <div className="flex items-center gap-4">
+                  <div className="w-3 h-3 bg-amber-400 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
+                  <span className="text-white">Water savings optimization</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
           {/* Feature Grid with Enhanced Animations */}
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto relative">
             {/* Connecting Lines Animation */}
