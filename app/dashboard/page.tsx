@@ -18,12 +18,9 @@ export default function Dashboard() {
         <div className="max-w-7xl mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
-              <Link href="/">
-                <img src="/kern-logo.jpg" alt="Kern Irrigation" className="h-12 w-auto cursor-pointer" />
-              </Link>
-              <div className="hidden md:block border-l-2 border-white/30 pl-4">
-                <h1 className="text-white text-xl font-bold">AI Dashboard</h1>
-                <p className="text-green-200 text-xs">Real-Time Monitoring</p>
+              <div>
+                <h1 className="text-white text-2xl font-bold">AI Dashboard</h1>
+                <p className="text-green-200 text-sm">Real-Time Monitoring</p>
               </div>
             </div>
             <div className="flex items-center gap-4">
