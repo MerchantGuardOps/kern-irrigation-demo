@@ -3,102 +3,174 @@
 export default function AnimatedHero() {
   return (
     <>
-      {/* Animated Field Background Hero */}
-      <section className="relative min-h-[600px] md:min-h-[700px] overflow-hidden">
-        {/* Animated Gradient Background - Field Colors */}
-        <div className="absolute inset-0 bg-gradient-to-br from-green-900 via-green-800 to-emerald-900 animate-gradient-shift"></div>
-
-        {/* Field Pattern Overlay */}
-        <div className="absolute inset-0 opacity-10">
+      {/* Professional Hero Section */}
+      <section className="relative min-h-[700px] md:min-h-[800px] overflow-hidden bg-gradient-to-br from-slate-900 via-green-900 to-emerald-900">
+        {/* Subtle Grid Pattern */}
+        <div className="absolute inset-0 opacity-5">
           <div className="absolute inset-0" style={{
             backgroundImage: `
-              linear-gradient(0deg, transparent 95%, rgba(255,255,255,0.1) 95%),
-              linear-gradient(90deg, transparent 95%, rgba(255,255,255,0.1) 95%)
+              linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)
             `,
-            backgroundSize: '100px 100px'
+            backgroundSize: '60px 60px'
           }}></div>
         </div>
 
-        {/* AI Data Flow Particles */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          {[...Array(20)].map((_, i) => (
-            <div
-              key={`particle-${i}`}
-              className="absolute w-1 h-1 bg-green-400/40 rounded-full"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animation: `float ${Math.random() * 4 + 3}s ease-in-out infinite`,
-                animationDelay: `${Math.random() * 3}s`
-              }}
-            />
-          ))}
-        </div>
-
         {/* Content */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 py-20 md:py-32">
-          <div className="text-center max-w-4xl mx-auto">
-            {/* AI Badge */}
-            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-6 py-3 mb-8 animate-fade-in-up">
-              <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse-soft"></div>
-              <span className="text-green-100 font-medium text-sm md:text-base">
-                Powered by 50 Years of Irrigation Intelligence
-              </span>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 py-24 md:py-32">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left: Messaging */}
+            <div>
+              {/* Trust Badge */}
+              <div className="inline-flex items-center gap-2 bg-emerald-500/10 backdrop-blur-sm border border-emerald-400/30 rounded-full px-5 py-2 mb-6">
+                <svg className="w-4 h-4 text-emerald-400" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                </svg>
+                <span className="text-emerald-300 font-semibold text-sm">Certified Crop Advisors</span>
+              </div>
+
+              {/* Main Headline */}
+              <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+                AI-Powered<br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-500">Irrigation Intelligence</span>
+              </h1>
+
+              {/* Subheadline */}
+              <p className="text-xl text-slate-300 mb-8 leading-relaxed">
+                50 years of Kern County field data meets advanced machine learning. Maximize yields, minimize water waste, ensure SGMA compliance.
+              </p>
+
+              {/* Key Benefits */}
+              <div className="space-y-3 mb-8">
+                <div className="flex items-center gap-3">
+                  <div className="w-6 h-6 rounded-full bg-green-500/20 flex items-center justify-center flex-shrink-0">
+                    <svg className="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <span className="text-slate-200 font-medium">Real-time soil & weather monitoring</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-6 h-6 rounded-full bg-green-500/20 flex items-center justify-center flex-shrink-0">
+                    <svg className="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <span className="text-slate-200 font-medium">Predictive irrigation scheduling</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-6 h-6 rounded-full bg-green-500/20 flex items-center justify-center flex-shrink-0">
+                    <svg className="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <span className="text-slate-200 font-medium">10-15% average water savings</span>
+                </div>
+              </div>
+
+              {/* CTA Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4">
+                <a
+                  href="#contact"
+                  className="group relative bg-gradient-to-r from-green-500 to-emerald-600 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:from-green-600 hover:to-emerald-700 transition-all duration-300 shadow-xl hover:shadow-2xl hover:-translate-y-0.5 min-h-[48px] text-center flex items-center justify-center gap-2"
+                >
+                  <span>Schedule Consultation</span>
+                  <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
+                </a>
+                <a
+                  href="tel:6618093151"
+                  className="bg-white/5 backdrop-blur-sm text-white border-2 border-white/20 px-8 py-4 rounded-xl text-lg font-semibold hover:bg-white/10 hover:border-white/30 transition-all duration-300 min-h-[48px] text-center flex items-center justify-center gap-2"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  </svg>
+                  <span>(661) 809-3151</span>
+                </a>
+              </div>
             </div>
 
-            {/* Main Headline */}
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
-              Professional Irrigation Management for California Tree Nuts
-            </h1>
+            {/* Right: Stats Dashboard */}
+            <div className="relative">
+              {/* Main Dashboard Card */}
+              <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 shadow-2xl">
+                <div className="flex items-center justify-between mb-6">
+                  <div className="flex items-center gap-3">
+                    <div className="w-3 h-3 rounded-full bg-green-400 animate-pulse"></div>
+                    <span className="text-white font-semibold">Live System Status</span>
+                  </div>
+                  <span className="text-green-400 text-sm font-medium">All Systems Operational</span>
+                </div>
 
-            {/* Subheadline */}
-            <p className="text-xl md:text-2xl text-green-100 mb-12 leading-relaxed animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-              Trusted by almond and pistachio growers across Bakersfield and the San Joaquin Valley since 1984.
-            </p>
+                {/* Stats Grid */}
+                <div className="grid grid-cols-2 gap-4 mb-6">
+                  <div className="bg-gradient-to-br from-blue-500/20 to-blue-600/10 border border-blue-400/30 rounded-xl p-4">
+                    <div className="text-blue-300 text-sm font-medium mb-2">Acres Monitored</div>
+                    <div className="text-3xl font-bold text-white">30,442</div>
+                    <div className="text-xs text-blue-300 mt-1">↑ 3 California regions</div>
+                  </div>
+                  <div className="bg-gradient-to-br from-green-500/20 to-green-600/10 border border-green-400/30 rounded-xl p-4">
+                    <div className="text-green-300 text-sm font-medium mb-2">Water Saved</div>
+                    <div className="text-3xl font-bold text-white">12.4%</div>
+                    <div className="text-xs text-green-300 mt-1">↑ vs industry avg</div>
+                  </div>
+                  <div className="bg-gradient-to-br from-amber-500/20 to-amber-600/10 border border-amber-400/30 rounded-xl p-4">
+                    <div className="text-amber-300 text-sm font-medium mb-2">Yield Increase</div>
+                    <div className="text-3xl font-bold text-white">8.2%</div>
+                    <div className="text-xs text-amber-300 mt-1">↑ optimized nutrition</div>
+                  </div>
+                  <div className="bg-gradient-to-br from-purple-500/20 to-purple-600/10 border border-purple-400/30 rounded-xl p-4">
+                    <div className="text-purple-300 text-sm font-medium mb-2">Experience</div>
+                    <div className="text-3xl font-bold text-white">50+</div>
+                    <div className="text-xs text-purple-300 mt-1">Years of data</div>
+                  </div>
+                </div>
 
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
-              <a
-                href="#contact"
-                className="group relative bg-white text-green-700 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-green-50 transition-all duration-300 shadow-lg hover:shadow-2xl hover:-translate-y-1 min-h-[48px] w-full sm:w-auto text-center overflow-hidden"
-              >
-                <span className="relative z-10">Get Started Today</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-green-400/0 via-green-400/20 to-green-400/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
-              </a>
-              <a
-                href="#services"
-                className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white/20 hover:border-white/50 transition-all duration-300 min-h-[48px] w-full sm:w-auto text-center hover:-translate-y-1"
-              >
-                Our Services
-              </a>
-            </div>
+                {/* AI Activity Indicator */}
+                <div className="border-t border-white/10 pt-4">
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="text-slate-300 text-sm font-medium">AI Model Activity</span>
+                    <span className="text-green-400 text-xs">Processing</span>
+                  </div>
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-2">
+                      <div className="h-1.5 flex-1 bg-white/10 rounded-full overflow-hidden">
+                        <div className="h-full bg-gradient-to-r from-blue-500 to-cyan-400 rounded-full animate-progress" style={{ width: '78%' }}></div>
+                      </div>
+                      <span className="text-xs text-slate-400 w-12">Soil</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div className="h-1.5 flex-1 bg-white/10 rounded-full overflow-hidden">
+                        <div className="h-full bg-gradient-to-r from-green-500 to-emerald-400 rounded-full animate-progress" style={{ width: '92%', animationDelay: '0.2s' }}></div>
+                      </div>
+                      <span className="text-xs text-slate-400 w-12">Weather</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div className="h-1.5 flex-1 bg-white/10 rounded-full overflow-hidden">
+                        <div className="h-full bg-gradient-to-r from-amber-500 to-orange-400 rounded-full animate-progress" style={{ width: '85%', animationDelay: '0.4s' }}></div>
+                      </div>
+                      <span className="text-xs text-slate-400 w-12">Yield</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-            {/* Stats Grid with Animated Numbers */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
-              <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-6 hover:bg-white/15 transition-all duration-300 hover:-translate-y-1">
-                <div className="text-4xl md:text-5xl font-bold text-white mb-2 animate-pulse-number">50+</div>
-                <div className="text-green-100 text-sm md:text-base">Years Experience</div>
+              {/* Floating Badges */}
+              <div className="absolute -top-4 -right-4 bg-gradient-to-br from-green-500 to-emerald-600 text-white px-4 py-2 rounded-xl shadow-xl border border-green-400/50">
+                <div className="text-xs font-medium">SGMA Compliant</div>
               </div>
-              <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-6 hover:bg-white/15 transition-all duration-300 hover:-translate-y-1">
-                <div className="text-4xl md:text-5xl font-bold text-white mb-2 animate-pulse-number" style={{ animationDelay: '0.5s' }}>10K+</div>
-                <div className="text-green-100 text-sm md:text-base">Acres Managed</div>
-              </div>
-              <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-6 hover:bg-white/15 transition-all duration-300 hover:-translate-y-1">
-                <div className="text-4xl md:text-5xl font-bold text-white mb-2 animate-pulse-number" style={{ animationDelay: '1s' }}>14%</div>
-                <div className="text-green-100 text-sm md:text-base">Avg Water Savings</div>
-              </div>
-              <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-6 hover:bg-white/15 transition-all duration-300 hover:-translate-y-1">
-                <div className="text-4xl md:text-5xl font-bold text-white mb-2 animate-pulse-number" style={{ animationDelay: '1.5s' }}>100%</div>
-                <div className="text-green-100 text-sm md:text-base">Local & Family Owned</div>
+              <div className="absolute -bottom-4 -left-4 bg-gradient-to-br from-blue-500 to-cyan-600 text-white px-4 py-2 rounded-xl shadow-xl border border-blue-400/50">
+                <div className="text-xs font-medium">Since 1984</div>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Bottom Wave Transition */}
+        {/* Bottom Wave */}
         <div className="absolute bottom-0 left-0 right-0">
-          <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full">
-            <path d="M0 0L60 10C120 20 240 40 360 46.7C480 53 600 47 720 43.3C840 40 960 40 1080 46.7C1200 53 1320 67 1380 73.3L1440 80V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0V0Z" fill="white"/>
+          <svg viewBox="0 0 1440 120" fill="none" className="w-full">
+            <path d="M0 0L60 10C120 20 240 40 360 46.7C480 53 600 47 720 43.3C840 40 960 40 1080 46.7C1200 53 1320 67 1380 73.3L1440 80V120H0V0Z" fill="white"/>
           </svg>
         </div>
       </section>

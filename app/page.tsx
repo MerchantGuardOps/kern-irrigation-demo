@@ -9,9 +9,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 py-4 md:py-5">
           <div className="flex items-center justify-between gap-4">
             <div className="flex items-center gap-3 md:gap-4 flex-shrink-0">
-              <div className="px-2">
-                <img src="/logo.png" alt="Kern Irrigation Systems" className="h-20 md:h-24 w-auto object-contain" style={{minWidth: '280px', maxWidth: '400px'}} />
-              </div>
+              <img src="/kern-logo.jpg" alt="Kern Irrigation Scheduling" className="h-16 md:h-20 w-auto object-contain" />
               <div className="hidden lg:block border-l-2 border-white/30 pl-4">
                 <p className="text-green-100 text-xs uppercase tracking-wider font-semibold">Since 1984</p>
               </div>
@@ -306,11 +304,8 @@ export default function Home() {
             <p className="text-lg text-gray-600 leading-relaxed mb-6">
               As California agriculture has evolved, we've adapted while staying true to our original mission: providing service that helps produce large yields and high-quality fruit in the most agronomic and cost-effective way.
             </p>
-            <div className="inline-flex items-center gap-2 bg-green-50 border border-green-200 rounded-full px-6 py-3">
-              <svg className="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-              </svg>
-              <span className="text-green-900 font-semibold">Certified Crop Advisors on Staff</span>
+            <div className="flex items-center justify-center gap-4">
+              <img src="/cca-badge.jpg" alt="Certified Crop Adviser" className="h-24 w-auto object-contain" />
             </div>
           </div>
 
