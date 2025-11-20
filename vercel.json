@@ -1,3 +1,10 @@
 {
-  "cleanUrls": true
+  "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/demo",
+      "destination": "/dashboard",
+      "permanent": false
+    }
+  ]
 }
