@@ -4,8 +4,8 @@ import type { NextRequest } from 'next/server';
 export function middleware(request: NextRequest) {
   const hostname = request.headers.get('host') || '';
 
-  // If accessing demo.kisag.co root, redirect to dashboard
-  if (hostname === 'demo.kisag.co' && request.nextUrl.pathname === '/') {
+  // If accessing demo.kisag.co root (with or without www), redirect to dashboard
+  if ((hostname.includes('demo.kisag.co') || hostname.startsWith('demo.')) && request.nextUrl.pathname === '/') {
     return NextResponse.redirect(new URL('/dashboard', request.url));
   }
 
@@ -13,5 +13,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: '/',
+  matcher: '/:path*',
 };
