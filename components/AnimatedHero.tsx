@@ -19,24 +19,6 @@ export default function AnimatedHero() {
           }}></div>
         </div>
 
-        {/* Animated Water Droplets */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          {[...Array(12)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute rounded-full bg-blue-400/20"
-              style={{
-                width: `${Math.random() * 8 + 4}px`,
-                height: `${Math.random() * 8 + 4}px`,
-                left: `${Math.random() * 100}%`,
-                top: '-20px',
-                animation: `droplet ${Math.random() * 3 + 4}s linear infinite`,
-                animationDelay: `${Math.random() * 5}s`
-              }}
-            />
-          ))}
-        </div>
-
         {/* AI Data Flow Particles */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           {[...Array(20)].map((_, i) => (

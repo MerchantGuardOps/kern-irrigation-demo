@@ -9,7 +9,9 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 py-4 md:py-5">
           <div className="flex items-center justify-between gap-4">
             <div className="flex items-center gap-3 md:gap-4 flex-shrink-0">
-              <img src="/logo.png" alt="Kern Irrigation Systems" className="h-20 md:h-24 w-auto object-contain" style={{maxWidth: '400px'}} />
+              <div className="px-2">
+                <img src="/logo.png" alt="Kern Irrigation Systems" className="h-20 md:h-24 w-auto object-contain" style={{minWidth: '280px', maxWidth: '400px'}} />
+              </div>
               <div className="hidden lg:block border-l-2 border-white/30 pl-4">
                 <p className="text-green-100 text-xs uppercase tracking-wider font-semibold">Since 1984</p>
               </div>
