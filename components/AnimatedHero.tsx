@@ -143,32 +143,30 @@ export default function AnimatedHero() {
             </p>
           </div>
 
-          {/* Clean Field Visualization - No Animations */}
+          {/* BADASS AI Field Visualization with Data Pulses */}
           <div className="flex flex-col lg:flex-row items-center gap-12 mb-16 max-w-7xl mx-auto">
-            {/* Left: Static Agricultural Field */}
+            {/* Left: Animated Field with Data Streams */}
             <div className="w-full lg:w-1/2 relative">
               <div className="relative w-full max-w-lg mx-auto bg-gradient-to-br from-green-800 via-green-700 to-green-900 rounded-3xl p-8 shadow-2xl overflow-hidden" style={{ minHeight: '450px' }}>
 
-                {/* Realistic Tree Orchard - Better SVG Trees */}
+                {/* Realistic Tree Orchard */}
                 {[...Array(20)].map((_, i) => {
                   const row = Math.floor(i / 5);
                   const col = i % 5;
                   return (
                     <div
                       key={`tree-${i}`}
-                      className="absolute"
+                      className="absolute transition-opacity duration-1000"
                       style={{
                         left: `${10 + col * 18}%`,
                         top: `${15 + row * 20}%`,
                       }}
                     >
                       <svg className="w-10 h-10 md:w-12 md:h-12 text-green-400 opacity-80" viewBox="0 0 64 64" fill="currentColor">
-                        {/* Tree canopy - fuller, more realistic */}
                         <ellipse cx="32" cy="28" rx="14" ry="16" fill="#2d5016" opacity="0.7"/>
                         <ellipse cx="28" cy="24" rx="12" ry="14" fill="#3a6b1f"/>
                         <ellipse cx="36" cy="24" rx="12" ry="14" fill="#3a6b1f"/>
                         <ellipse cx="32" cy="20" rx="10" ry="12" fill="#4a8028"/>
-                        {/* Trunk */}
                         <rect x="30" y="36" width="4" height="14" fill="#5d4037" rx="1"/>
                         <rect x="29" y="38" width="6" height="2" fill="#6d4c41" opacity="0.5"/>
                       </svg>
@@ -176,65 +174,109 @@ export default function AnimatedHero() {
                   );
                 })}
 
-                {/* AI Processing Center - Bottom Center - NO ANIMATION */}
+                {/* AI Processing Center with Subtle Glow */}
                 <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
-                  <div className="bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl p-4 shadow-xl shadow-blue-500/50 backdrop-blur-sm border-2 border-blue-300/30">
-                    <div className="text-center">
-                      <svg className="w-10 h-10 text-white mx-auto mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                      </svg>
-                      <div className="text-white text-xs font-bold">AI</div>
+                  <div className="relative">
+                    <div className="absolute inset-0 bg-blue-500 rounded-2xl blur-xl opacity-40"></div>
+                    <div className="relative bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl p-4 shadow-2xl backdrop-blur-sm border-2 border-blue-300/50">
+                      <div className="text-center">
+                        <svg className="w-10 h-10 text-white mx-auto mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                        </svg>
+                        <div className="text-white text-xs font-bold">AI</div>
+                      </div>
                     </div>
                   </div>
                 </div>
 
-                {/* Field Sensors - NO ANIMATIONS */}
+                {/* Field Sensors with Subtle Indicators */}
                 {/* Top Left - Soil Sensor */}
                 <div className="absolute top-6 left-6">
-                  <div className="w-16 h-16 bg-amber-500 rounded-xl shadow-lg flex flex-col items-center justify-center backdrop-blur-sm bg-opacity-90 border-2 border-amber-300/30">
-                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12h18M3 6h18M3 18h18" />
-                    </svg>
-                    <div className="text-white text-[10px] font-semibold mt-1">Soil</div>
+                  <div className="relative">
+                    <div className="absolute inset-0 bg-amber-400 rounded-xl blur-md opacity-30"></div>
+                    <div className="relative w-16 h-16 bg-amber-500 rounded-xl shadow-xl flex flex-col items-center justify-center backdrop-blur-sm bg-opacity-95 border-2 border-amber-300/50">
+                      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12h18M3 6h18M3 18h18" />
+                      </svg>
+                      <div className="text-white text-[10px] font-semibold mt-1">Soil</div>
+                    </div>
                   </div>
                 </div>
 
                 {/* Top Right - Weather Sensor */}
                 <div className="absolute top-6 right-6">
-                  <div className="w-16 h-16 bg-blue-500 rounded-xl shadow-lg flex flex-col items-center justify-center backdrop-blur-sm bg-opacity-90 border-2 border-blue-300/30">
-                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
-                    </svg>
-                    <div className="text-white text-[10px] font-semibold mt-1">Weather</div>
+                  <div className="relative">
+                    <div className="absolute inset-0 bg-blue-400 rounded-xl blur-md opacity-30"></div>
+                    <div className="relative w-16 h-16 bg-blue-500 rounded-xl shadow-xl flex flex-col items-center justify-center backdrop-blur-sm bg-opacity-95 border-2 border-blue-300/50">
+                      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+                      </svg>
+                      <div className="text-white text-[10px] font-semibold mt-1">Weather</div>
+                    </div>
                   </div>
                 </div>
 
                 {/* Middle Left - Water Sensor */}
                 <div className="absolute top-1/2 left-6 transform -translate-y-1/2">
-                  <div className="w-16 h-16 bg-cyan-500 rounded-xl shadow-lg flex flex-col items-center justify-center backdrop-blur-sm bg-opacity-90 border-2 border-cyan-300/30">
-                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343" />
-                    </svg>
-                    <div className="text-white text-[10px] font-semibold mt-1">Water</div>
+                  <div className="relative">
+                    <div className="absolute inset-0 bg-cyan-400 rounded-xl blur-md opacity-30"></div>
+                    <div className="relative w-16 h-16 bg-cyan-500 rounded-xl shadow-xl flex flex-col items-center justify-center backdrop-blur-sm bg-opacity-95 border-2 border-cyan-300/50">
+                      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343" />
+                      </svg>
+                      <div className="text-white text-[10px] font-semibold mt-1">Water</div>
+                    </div>
                   </div>
                 </div>
 
                 {/* Middle Right - Yield Sensor */}
                 <div className="absolute top-1/2 right-6 transform -translate-y-1/2">
-                  <div className="w-16 h-16 bg-emerald-500 rounded-xl shadow-lg flex flex-col items-center justify-center backdrop-blur-sm bg-opacity-90 border-2 border-emerald-300/30">
-                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                    </svg>
-                    <div className="text-white text-[10px] font-semibold mt-1">Yield</div>
+                  <div className="relative">
+                    <div className="absolute inset-0 bg-emerald-400 rounded-xl blur-md opacity-30"></div>
+                    <div className="relative w-16 h-16 bg-emerald-500 rounded-xl shadow-xl flex flex-col items-center justify-center backdrop-blur-sm bg-opacity-95 border-2 border-emerald-300/50">
+                      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                      </svg>
+                      <div className="text-white text-[10px] font-semibold mt-1">Yield</div>
+                    </div>
                   </div>
                 </div>
 
-                {/* Static Data Flow Lines - NO ANIMATION */}
-                <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-40" viewBox="0 0 100 100" preserveAspectRatio="none">
-                  <line x1="15" y1="10" x2="50" y2="85" stroke="rgba(59, 130, 246, 0.5)" strokeWidth="0.5" strokeDasharray="2 2" />
-                  <line x1="85" y1="10" x2="50" y2="85" stroke="rgba(59, 130, 246, 0.5)" strokeWidth="0.5" strokeDasharray="2 2" />
-                  <line x1="15" y1="50" x2="50" y2="85" stroke="rgba(6, 182, 212, 0.5)" strokeWidth="0.5" strokeDasharray="2 2" />
-                  <line x1="85" y1="50" x2="50" y2="85" stroke="rgba(16, 185, 129, 0.5)" strokeWidth="0.5" strokeDasharray="2 2" />
+                {/* Animated Data Streams - Smooth pulses along lines */}
+                <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 100 100" preserveAspectRatio="none">
+                  {/* Static connection lines */}
+                  <line x1="15" y1="10" x2="50" y2="85" stroke="rgba(59, 130, 246, 0.2)" strokeWidth="0.5" />
+                  <line x1="85" y1="10" x2="50" y2="85" stroke="rgba(59, 130, 246, 0.2)" strokeWidth="0.5" />
+                  <line x1="15" y1="50" x2="50" y2="85" stroke="rgba(6, 182, 212, 0.2)" strokeWidth="0.5" />
+                  <line x1="85" y1="50" x2="50" y2="85" stroke="rgba(16, 185, 129, 0.2)" strokeWidth="0.5" />
+
+                  {/* Animated data pulses traveling along lines */}
+                  <circle r="1.5" fill="#3B82F6" opacity="0.8">
+                    <animateMotion dur="3s" repeatCount="indefinite">
+                      <mpath href="#path1"/>
+                    </animateMotion>
+                  </circle>
+                  <circle r="1.5" fill="#3B82F6" opacity="0.8">
+                    <animateMotion dur="3s" repeatCount="indefinite" begin="1s">
+                      <mpath href="#path2"/>
+                    </animateMotion>
+                  </circle>
+                  <circle r="1.5" fill="#06B6D4" opacity="0.8">
+                    <animateMotion dur="3.5s" repeatCount="indefinite" begin="0.5s">
+                      <mpath href="#path3"/>
+                    </animateMotion>
+                  </circle>
+                  <circle r="1.5" fill="#10B981" opacity="0.8">
+                    <animateMotion dur="3.5s" repeatCount="indefinite" begin="1.5s">
+                      <mpath href="#path4"/>
+                    </animateMotion>
+                  </circle>
+
+                  {/* Define paths for motion */}
+                  <path id="path1" d="M15,10 L50,85" fill="none" />
+                  <path id="path2" d="M85,10 L50,85" fill="none" />
+                  <path id="path3" d="M15,50 L50,85" fill="none" />
+                  <path id="path4" d="M85,50 L50,85" fill="none" />
                 </svg>
               </div>
             </div>
