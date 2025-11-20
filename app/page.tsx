@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import AnimatedHero from '@/components/AnimatedHero';
 
 export default function Home() {
   return (
@@ -21,37 +22,11 @@ export default function Home() {
         </div>
       </header>
 
-      {/* Hero Section - Mobile First */}
-      <section className="bg-gradient-to-br from-green-50 to-blue-50 py-12 md:py-20">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-              Professional Irrigation Management for California Tree Nuts
-            </h2>
-            <p className="text-lg md:text-xl text-gray-700 mb-8 leading-relaxed">
-              Trusted by almond and pistachio growers across Bakersfield and the San Joaquin Valley since 1984.
-              Expert irrigation scheduling backed by decades of field data.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <a
-                href="#contact"
-                className="bg-green-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-green-700 transition-colors shadow-lg min-h-[48px] w-full sm:w-auto text-center"
-              >
-                Get Started Today
-              </a>
-              <a
-                href="#services"
-                className="bg-white text-green-700 border-2 border-green-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-green-50 transition-colors min-h-[48px] w-full sm:w-auto text-center"
-              >
-                Our Services
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* BADASS Animated Hero with AI Intelligence */}
+      <AnimatedHero />
 
-      {/* Stats Section */}
-      <section className="py-12 bg-white border-y border-gray-200">
+      {/* Stats Section - REMOVED (now in hero) */}
+      <section className="py-0 hidden">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             <div className="text-center">
