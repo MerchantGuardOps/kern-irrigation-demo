@@ -6,18 +6,17 @@ export default function Home() {
     <div className="min-h-screen bg-white">
       {/* Mobile-optimized header with 48x48px touch targets */}
       <header className="bg-gradient-to-r from-green-700 to-green-600 text-white sticky top-0 z-50 shadow-lg">
-        <div className="max-w-7xl mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-4">
-              <img src="/logo.png" alt="Kern Irrigation Systems" className="h-12 md:h-14 w-auto" />
-              <div>
-                <h1 className="text-xl md:text-2xl font-bold">Kern Irrigation Systems</h1>
-                <p className="text-green-100 text-xs md:text-sm">50+ Years Serving California Agriculture</p>
+        <div className="max-w-7xl mx-auto px-4 py-3 md:py-4">
+          <div className="flex items-center justify-between gap-4">
+            <div className="flex items-center gap-3 md:gap-4 flex-shrink-0">
+              <img src="/logo.png" alt="Kern Irrigation Systems" className="h-12 md:h-14 w-auto object-contain" />
+              <div className="hidden lg:block border-l-2 border-white/30 pl-4">
+                <p className="text-green-100 text-xs uppercase tracking-wider font-semibold">Since 1984</p>
               </div>
             </div>
             <a
               href="tel:6618093151"
-              className="bg-white text-green-700 px-4 py-3 md:px-6 md:py-3 rounded-lg font-semibold hover:bg-green-50 transition-colors min-h-[48px] min-w-[48px] flex items-center justify-center text-sm md:text-base"
+              className="bg-white text-green-700 px-4 py-3 md:px-6 md:py-3 rounded-lg font-semibold hover:bg-green-50 transition-colors min-h-[48px] min-w-[48px] flex items-center justify-center text-sm md:text-base flex-shrink-0"
             >
               Call Now
             </a>
@@ -397,12 +396,13 @@ export default function Home() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {/* Citrus */}
             <div className="bg-gradient-to-br from-orange-50 to-yellow-50 rounded-xl p-8 shadow-lg border border-orange-200 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group">
-              <div className="w-20 h-20 bg-gradient-to-br from-orange-100 to-orange-200 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-md">
-                <svg className="w-10 h-10 text-orange-600" fill="currentColor" viewBox="0 0 24 24">
-                  <circle cx="12" cy="12" r="9" fill="currentColor" opacity="0.2"/>
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
-                  <circle cx="12" cy="12" r="3" fill="currentColor"/>
-                  <path d="M15 8l-2-2-2 2" stroke="currentColor" strokeWidth="1" fill="none" strokeLinecap="round"/>
+              <div className="w-20 h-20 bg-gradient-to-br from-orange-100 to-orange-200 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-md relative">
+                <svg className="w-12 h-12 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 64 64">
+                  <circle cx="32" cy="32" r="18" fill="#FF8C00" stroke="#FF6B00" strokeWidth="2"/>
+                  <path d="M32 14 L32 50 M20 20 L44 44 M44 20 L20 44 M14 32 L50 32" stroke="#FF6B00" strokeWidth="1" opacity="0.3"/>
+                  <circle cx="26" cy="24" r="4" fill="#FFB84D" opacity="0.8"/>
+                  <path d="M32 14 L32 8 M32 8 L28 10 L34 12" stroke="#10B981" strokeWidth="2" strokeLinecap="round" fill="none"/>
+                  <ellipse cx="30" cy="10" rx="3" ry="5" fill="#10B981" transform="rotate(-20 30 10)"/>
                 </svg>
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-3">Citrus</h3>
@@ -412,10 +412,14 @@ export default function Home() {
             {/* Nuts */}
             <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-xl p-8 shadow-lg border border-amber-200 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group">
               <div className="w-20 h-20 bg-gradient-to-br from-amber-100 to-amber-200 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-md">
-                <svg className="w-10 h-10 text-amber-700" fill="currentColor" viewBox="0 0 24 24">
-                  <ellipse cx="12" cy="12" rx="7" ry="9" fill="currentColor" opacity="0.2"/>
-                  <path d="M12 3c-3 0-5 2.5-6 5-1 2.5-.5 5 1 7 1.5 2 4 4 5 4s3.5-2 5-4c1.5-2 2-4.5 1-7-1-2.5-3-5-6-5z" stroke="currentColor" strokeWidth="1.5" fill="none"/>
-                  <path d="M12 8v8M9 10l6 4M9 14l6-4" stroke="currentColor" strokeWidth="1" opacity="0.4"/>
+                <svg className="w-12 h-12 text-amber-700" fill="none" stroke="currentColor" viewBox="0 0 64 64">
+                  <ellipse cx="32" cy="32" rx="12" ry="18" fill="#D97706" stroke="#B45309" strokeWidth="2"/>
+                  <path d="M24 20 Q26 32 24 44 M28 18 Q30 32 28 46 M36 18 Q34 32 36 46 M40 20 Q38 32 40 44"
+                        stroke="#B45309" strokeWidth="1" opacity="0.4"/>
+                  <ellipse cx="28" cy="22" rx="3" ry="6" fill="#F59E0B" opacity="0.6"/>
+                  <path d="M32 26 L32 38" stroke="#B45309" strokeWidth="2" strokeLinecap="round"/>
+                  <ellipse cx="29" cy="32" rx="2" ry="4" fill="#8B4513" opacity="0.3"/>
+                  <ellipse cx="35" cy="32" rx="2" ry="4" fill="#8B4513" opacity="0.3"/>
                 </svg>
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-3">Nuts</h3>
@@ -443,12 +447,17 @@ export default function Home() {
             {/* Stone Fruits */}
             <div className="bg-gradient-to-br from-pink-50 to-rose-50 rounded-xl p-8 shadow-lg border border-pink-200 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group">
               <div className="w-20 h-20 bg-gradient-to-br from-pink-100 to-pink-200 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-md">
-                <svg className="w-10 h-10 text-pink-600" fill="currentColor" viewBox="0 0 24 24">
-                  <circle cx="12" cy="13" r="8" fill="currentColor" opacity="0.2"/>
-                  <path d="M12 5c-4 0-7 3-7 7s3 7 7 7 7-3 7-7-3-7-7-7z" stroke="currentColor" strokeWidth="1.5" fill="none"/>
-                  <ellipse cx="12" cy="13" rx="2" ry="3" fill="currentColor" opacity="0.3"/>
-                  <path d="M12 5c.5-1.5 1-2 1.5-2.5.5-.5 1-.5 1.5 0s.5 1.5 0 2-1.5 1-2 1.5" stroke="currentColor" strokeWidth="1.2" fill="none" strokeLinecap="round"/>
-                  <path d="M10 4l1 1 1-1" stroke="currentColor" strokeWidth="1" fill="none" strokeLinecap="round"/>
+                <svg className="w-12 h-12 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 64 64">
+                  <circle cx="32" cy="34" r="16" fill="#FF69B4" stroke="#E91E63" strokeWidth="2"/>
+                  <path d="M32 18 Q34 34 32 50" stroke="#E91E63" strokeWidth="2" opacity="0.6"/>
+                  <circle cx="26" cy="28" r="1" fill="#FFB6C1" opacity="0.8"/>
+                  <circle cx="38" cy="30" r="1" fill="#FFB6C1" opacity="0.8"/>
+                  <circle cx="28" cy="38" r="1" fill="#FFB6C1" opacity="0.8"/>
+                  <circle cx="36" cy="40" r="1" fill="#FFB6C1" opacity="0.8"/>
+                  <ellipse cx="26" cy="26" rx="4" ry="6" fill="#FFB6C1" opacity="0.7"/>
+                  <path d="M32 18 L32 12" stroke="#10B981" strokeWidth="2" strokeLinecap="round"/>
+                  <ellipse cx="30" cy="14" rx="4" ry="6" fill="#10B981" transform="rotate(-30 30 14)"/>
+                  <path d="M30 14 L34 16" stroke="#059669" strokeWidth="1"/>
                 </svg>
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-3">Stone Fruits</h3>
@@ -476,14 +485,18 @@ export default function Home() {
             {/* Grapes */}
             <div className="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-xl p-8 shadow-lg border border-purple-200 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group">
               <div className="w-20 h-20 bg-gradient-to-br from-purple-100 to-purple-200 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-md">
-                <svg className="w-10 h-10 text-purple-600" fill="currentColor" viewBox="0 0 24 24">
-                  <circle cx="9" cy="8" r="2.5" fill="currentColor" opacity="0.3"/>
-                  <circle cx="15" cy="8" r="2.5" fill="currentColor" opacity="0.3"/>
-                  <circle cx="12" cy="12" r="2.5" fill="currentColor" opacity="0.3"/>
-                  <circle cx="9" cy="16" r="2.5" fill="currentColor" opacity="0.3"/>
-                  <circle cx="15" cy="16" r="2.5" fill="currentColor" opacity="0.3"/>
-                  <path d="M12 3c0 0 2 1 2 3s-1 3-2 4c-1-1-2-2-2-4s2-3 2-3z" stroke="currentColor" strokeWidth="1.2" fill="none"/>
-                  <path d="M12 2v2" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+                <svg className="w-12 h-12 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 64 64">
+                  <circle cx="32" cy="22" r="5" fill="#9333EA" stroke="#7C3AED" strokeWidth="1.5"/>
+                  <circle cx="26" cy="28" r="5" fill="#9333EA" stroke="#7C3AED" strokeWidth="1.5"/>
+                  <circle cx="38" cy="28" r="5" fill="#9333EA" stroke="#7C3AED" strokeWidth="1.5"/>
+                  <circle cx="32" cy="34" r="5" fill="#9333EA" stroke="#7C3AED" strokeWidth="1.5"/>
+                  <circle cx="26" cy="40" r="5" fill="#9333EA" stroke="#7C3AED" strokeWidth="1.5"/>
+                  <circle cx="38" cy="40" r="5" fill="#9333EA" stroke="#7C3AED" strokeWidth="1.5"/>
+                  <circle cx="32" cy="46" r="5" fill="#9333EA" stroke="#7C3AED" strokeWidth="1.5"/>
+                  <ellipse cx="28" cy="20" r="2" fill="#C084FC" opacity="0.8"/>
+                  <path d="M32 17 L32 10" stroke="#10B981" strokeWidth="2" strokeLinecap="round"/>
+                  <ellipse cx="30" cy="12" rx="4" ry="6" fill="#10B981" transform="rotate(-25 30 12)"/>
+                  <path d="M30 12 L34 14" stroke="#059669" strokeWidth="1"/>
                 </svg>
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-3">Grapes</h3>
@@ -503,12 +516,14 @@ export default function Home() {
             {/* Avocados */}
             <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-8 shadow-lg border border-green-200 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group">
               <div className="w-20 h-20 bg-gradient-to-br from-green-100 to-green-200 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-md">
-                <svg className="w-10 h-10 text-green-600" fill="currentColor" viewBox="0 0 24 24">
-                  <ellipse cx="12" cy="14" rx="6" ry="8" fill="currentColor" opacity="0.2"/>
-                  <path d="M12 6c-3 0-5.5 3-5.5 7.5S9 22 12 22s5.5-4 5.5-8.5S15 6 12 6z" stroke="currentColor" strokeWidth="1.5" fill="none"/>
-                  <circle cx="12" cy="14" r="3" fill="currentColor" opacity="0.4"/>
-                  <path d="M12 6c1-2 2-3 3-3.5s1.5-.5 2 0c.5.5.5 1.5-.5 2.5s-2.5 1.5-3.5 2" stroke="currentColor" strokeWidth="1.2" fill="none" strokeLinecap="round"/>
-                  <path d="M11 5l1 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+                <svg className="w-12 h-12 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 64 64">
+                  <ellipse cx="32" cy="36" rx="14" ry="18" fill="#059669" stroke="#047857" strokeWidth="2"/>
+                  <ellipse cx="26" cy="28" rx="4" ry="6" fill="#10B981" opacity="0.6"/>
+                  <circle cx="32" cy="36" r="6" fill="#8B4513" stroke="#6B3410" strokeWidth="2"/>
+                  <ellipse cx="30" cy="34" rx="2" ry="3" fill="#A0522D" opacity="0.6"/>
+                  <path d="M32 18 L32 12" stroke="#10B981" strokeWidth="2.5" strokeLinecap="round"/>
+                  <ellipse cx="30" cy="14" rx="4" ry="7" fill="#10B981" transform="rotate(-30 30 14)"/>
+                  <path d="M28 16 L32 18" stroke="#059669" strokeWidth="1.5"/>
                 </svg>
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-3">Avocados</h3>
@@ -518,16 +533,17 @@ export default function Home() {
             {/* Pomegranates */}
             <div className="bg-gradient-to-br from-red-50 to-pink-50 rounded-xl p-8 shadow-lg border border-red-200 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group">
               <div className="w-20 h-20 bg-gradient-to-br from-red-100 to-red-200 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-md">
-                <svg className="w-10 h-10 text-red-600" fill="currentColor" viewBox="0 0 24 24">
-                  <circle cx="12" cy="13" r="8" fill="currentColor" opacity="0.2"/>
-                  <path d="M12 5c-4 0-7 3.5-7 8s3 7 7 7 7-2.5 7-7-3-8-7-8z" stroke="currentColor" strokeWidth="1.5" fill="none"/>
-                  <circle cx="9" cy="11" r="1.5" fill="currentColor" opacity="0.5"/>
-                  <circle cx="12" cy="13" r="1.5" fill="currentColor" opacity="0.5"/>
-                  <circle cx="15" cy="11" r="1.5" fill="currentColor" opacity="0.5"/>
-                  <circle cx="10.5" cy="15" r="1.5" fill="currentColor" opacity="0.5"/>
-                  <circle cx="13.5" cy="15" r="1.5" fill="currentColor" opacity="0.5"/>
-                  <path d="M12 5c0-1 .5-2 1-2.5s1-.5 1.5 0 .5 1.5 0 2-1 1-1.5 1.5" stroke="currentColor" strokeWidth="1.2" fill="none" strokeLinecap="round"/>
-                  <path d="M11 4l.5.5.5-.5" stroke="currentColor" strokeWidth="1" fill="none"/>
+                <svg className="w-12 h-12 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 64 64">
+                  <circle cx="32" cy="34" r="16" fill="#DC2626" stroke="#B91C1C" strokeWidth="2"/>
+                  <circle cx="26" cy="30" r="2" fill="#FCA5A5" opacity="0.9"/>
+                  <circle cx="32" cy="28" r="2" fill="#FCA5A5" opacity="0.9"/>
+                  <circle cx="38" cy="30" r="2" fill="#FCA5A5" opacity="0.9"/>
+                  <circle cx="28" cy="36" r="2" fill="#FCA5A5" opacity="0.9"/>
+                  <circle cx="36" cy="36" r="2" fill="#FCA5A5" opacity="0.9"/>
+                  <circle cx="32" cy="42" r="2" fill="#FCA5A5" opacity="0.9"/>
+                  <ellipse cx="26" cy="26" rx="4" ry="6" fill="#EF4444" opacity="0.6"/>
+                  <path d="M32 18 L28 12 L36 12 L32 18" fill="#10B981" stroke="#059669" strokeWidth="1.5" strokeLinejoin="round"/>
+                  <circle cx="32" cy="10" r="2" fill="#F59E0B" opacity="0.7"/>
                 </svg>
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-3">Pomegranates</h3>
