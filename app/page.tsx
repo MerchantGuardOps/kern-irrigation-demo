@@ -8,9 +8,12 @@ export default function Home() {
       <header className="bg-gradient-to-r from-green-700 to-green-600 text-white sticky top-0 z-50 shadow-lg">
         <div className="max-w-7xl mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            <div>
-              <h1 className="text-2xl md:text-3xl font-bold">Kern Irrigation Systems</h1>
-              <p className="text-green-100 text-sm md:text-base">50+ Years Serving California Agriculture</p>
+            <div className="flex items-center gap-4">
+              <img src="/logo.png" alt="Kern Irrigation Systems" className="h-12 md:h-14 w-auto" />
+              <div>
+                <h1 className="text-xl md:text-2xl font-bold">Kern Irrigation Systems</h1>
+                <p className="text-green-100 text-xs md:text-sm">50+ Years Serving California Agriculture</p>
+              </div>
             </div>
             <a
               href="tel:6618093151"
@@ -393,85 +396,142 @@ export default function Home() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {/* Citrus */}
-            <div className="bg-gradient-to-br from-orange-50 to-yellow-50 rounded-xl p-8 shadow-lg border border-orange-200 hover:shadow-xl transition-all duration-300">
-              <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mb-4">
-                <svg className="w-8 h-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+            <div className="bg-gradient-to-br from-orange-50 to-yellow-50 rounded-xl p-8 shadow-lg border border-orange-200 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group">
+              <div className="w-20 h-20 bg-gradient-to-br from-orange-100 to-orange-200 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-md">
+                <svg className="w-10 h-10 text-orange-600" fill="currentColor" viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="9" fill="currentColor" opacity="0.2"/>
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                  <circle cx="12" cy="12" r="3" fill="currentColor"/>
+                  <path d="M15 8l-2-2-2 2" stroke="currentColor" strokeWidth="1" fill="none" strokeLinecap="round"/>
                 </svg>
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-3">Citrus</h3>
-              <p className="text-gray-600 text-sm mb-4">Our specialty crop with deep expertise in California citrus production</p>
+              <p className="text-gray-600 text-sm mb-4 leading-relaxed">Our specialty crop with deep expertise in California citrus production</p>
             </div>
 
             {/* Nuts */}
-            <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-xl p-8 shadow-lg border border-amber-200 hover:shadow-xl transition-all duration-300">
-              <div className="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mb-4">
-                <svg className="w-8 h-8 text-amber-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+            <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-xl p-8 shadow-lg border border-amber-200 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group">
+              <div className="w-20 h-20 bg-gradient-to-br from-amber-100 to-amber-200 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-md">
+                <svg className="w-10 h-10 text-amber-700" fill="currentColor" viewBox="0 0 24 24">
+                  <ellipse cx="12" cy="12" rx="7" ry="9" fill="currentColor" opacity="0.2"/>
+                  <path d="M12 3c-3 0-5 2.5-6 5-1 2.5-.5 5 1 7 1.5 2 4 4 5 4s3.5-2 5-4c1.5-2 2-4.5 1-7-1-2.5-3-5-6-5z" stroke="currentColor" strokeWidth="1.5" fill="none"/>
+                  <path d="M12 8v8M9 10l6 4M9 14l6-4" stroke="currentColor" strokeWidth="1" opacity="0.4"/>
                 </svg>
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-3">Nuts</h3>
               <p className="text-gray-600 text-sm mb-3">Comprehensive management for:</p>
               <ul className="space-y-1 text-gray-700 text-sm">
-                <li>• Pistachios</li>
-                <li>• Almonds</li>
-                <li>• Pecans</li>
-                <li>• Walnuts</li>
+                <li className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 bg-amber-500 rounded-full"></span>
+                  <span>Pistachios</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 bg-amber-500 rounded-full"></span>
+                  <span>Almonds</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 bg-amber-500 rounded-full"></span>
+                  <span>Pecans</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 bg-amber-500 rounded-full"></span>
+                  <span>Walnuts</span>
+                </li>
               </ul>
             </div>
 
             {/* Stone Fruits */}
-            <div className="bg-gradient-to-br from-pink-50 to-rose-50 rounded-xl p-8 shadow-lg border border-pink-200 hover:shadow-xl transition-all duration-300">
-              <div className="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mb-4">
-                <svg className="w-8 h-8 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            <div className="bg-gradient-to-br from-pink-50 to-rose-50 rounded-xl p-8 shadow-lg border border-pink-200 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group">
+              <div className="w-20 h-20 bg-gradient-to-br from-pink-100 to-pink-200 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-md">
+                <svg className="w-10 h-10 text-pink-600" fill="currentColor" viewBox="0 0 24 24">
+                  <circle cx="12" cy="13" r="8" fill="currentColor" opacity="0.2"/>
+                  <path d="M12 5c-4 0-7 3-7 7s3 7 7 7 7-3 7-7-3-7-7-7z" stroke="currentColor" strokeWidth="1.5" fill="none"/>
+                  <ellipse cx="12" cy="13" rx="2" ry="3" fill="currentColor" opacity="0.3"/>
+                  <path d="M12 5c.5-1.5 1-2 1.5-2.5.5-.5 1-.5 1.5 0s.5 1.5 0 2-1.5 1-2 1.5" stroke="currentColor" strokeWidth="1.2" fill="none" strokeLinecap="round"/>
+                  <path d="M10 4l1 1 1-1" stroke="currentColor" strokeWidth="1" fill="none" strokeLinecap="round"/>
                 </svg>
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-3">Stone Fruits</h3>
               <p className="text-gray-600 text-sm mb-3">Expert care for:</p>
               <ul className="space-y-1 text-gray-700 text-sm">
-                <li>• Peaches</li>
-                <li>• Plums</li>
-                <li>• Nectarines</li>
-                <li>• Apricots</li>
+                <li className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 bg-pink-500 rounded-full"></span>
+                  <span>Peaches</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 bg-pink-500 rounded-full"></span>
+                  <span>Plums</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 bg-pink-500 rounded-full"></span>
+                  <span>Nectarines</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 bg-pink-500 rounded-full"></span>
+                  <span>Apricots</span>
+                </li>
               </ul>
             </div>
 
             {/* Grapes */}
-            <div className="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-xl p-8 shadow-lg border border-purple-200 hover:shadow-xl transition-all duration-300">
-              <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-4">
-                <svg className="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+            <div className="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-xl p-8 shadow-lg border border-purple-200 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group">
+              <div className="w-20 h-20 bg-gradient-to-br from-purple-100 to-purple-200 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-md">
+                <svg className="w-10 h-10 text-purple-600" fill="currentColor" viewBox="0 0 24 24">
+                  <circle cx="9" cy="8" r="2.5" fill="currentColor" opacity="0.3"/>
+                  <circle cx="15" cy="8" r="2.5" fill="currentColor" opacity="0.3"/>
+                  <circle cx="12" cy="12" r="2.5" fill="currentColor" opacity="0.3"/>
+                  <circle cx="9" cy="16" r="2.5" fill="currentColor" opacity="0.3"/>
+                  <circle cx="15" cy="16" r="2.5" fill="currentColor" opacity="0.3"/>
+                  <path d="M12 3c0 0 2 1 2 3s-1 3-2 4c-1-1-2-2-2-4s2-3 2-3z" stroke="currentColor" strokeWidth="1.2" fill="none"/>
+                  <path d="M12 2v2" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
                 </svg>
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-3">Grapes</h3>
               <p className="text-gray-600 text-sm mb-3">Specialized programs for:</p>
               <ul className="space-y-1 text-gray-700 text-sm">
-                <li>• Wine grapes</li>
-                <li>• Table grapes</li>
+                <li className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 bg-purple-500 rounded-full"></span>
+                  <span>Wine grapes</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 bg-purple-500 rounded-full"></span>
+                  <span>Table grapes</span>
+                </li>
               </ul>
             </div>
 
             {/* Avocados */}
-            <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-8 shadow-lg border border-green-200 hover:shadow-xl transition-all duration-300">
-              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4">
-                <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+            <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-8 shadow-lg border border-green-200 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group">
+              <div className="w-20 h-20 bg-gradient-to-br from-green-100 to-green-200 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-md">
+                <svg className="w-10 h-10 text-green-600" fill="currentColor" viewBox="0 0 24 24">
+                  <ellipse cx="12" cy="14" rx="6" ry="8" fill="currentColor" opacity="0.2"/>
+                  <path d="M12 6c-3 0-5.5 3-5.5 7.5S9 22 12 22s5.5-4 5.5-8.5S15 6 12 6z" stroke="currentColor" strokeWidth="1.5" fill="none"/>
+                  <circle cx="12" cy="14" r="3" fill="currentColor" opacity="0.4"/>
+                  <path d="M12 6c1-2 2-3 3-3.5s1.5-.5 2 0c.5.5.5 1.5-.5 2.5s-2.5 1.5-3.5 2" stroke="currentColor" strokeWidth="1.2" fill="none" strokeLinecap="round"/>
+                  <path d="M11 5l1 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
                 </svg>
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-3">Avocados</h3>
-              <p className="text-gray-600 text-sm">Premium irrigation management for California avocado groves</p>
+              <p className="text-gray-600 text-sm leading-relaxed">Premium irrigation management for California avocado groves</p>
             </div>
 
             {/* Pomegranates */}
-            <div className="bg-gradient-to-br from-red-50 to-pink-50 rounded-xl p-8 shadow-lg border border-red-200 hover:shadow-xl transition-all duration-300">
-              <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mb-4">
-                <svg className="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+            <div className="bg-gradient-to-br from-red-50 to-pink-50 rounded-xl p-8 shadow-lg border border-red-200 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group">
+              <div className="w-20 h-20 bg-gradient-to-br from-red-100 to-red-200 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-md">
+                <svg className="w-10 h-10 text-red-600" fill="currentColor" viewBox="0 0 24 24">
+                  <circle cx="12" cy="13" r="8" fill="currentColor" opacity="0.2"/>
+                  <path d="M12 5c-4 0-7 3.5-7 8s3 7 7 7 7-2.5 7-7-3-8-7-8z" stroke="currentColor" strokeWidth="1.5" fill="none"/>
+                  <circle cx="9" cy="11" r="1.5" fill="currentColor" opacity="0.5"/>
+                  <circle cx="12" cy="13" r="1.5" fill="currentColor" opacity="0.5"/>
+                  <circle cx="15" cy="11" r="1.5" fill="currentColor" opacity="0.5"/>
+                  <circle cx="10.5" cy="15" r="1.5" fill="currentColor" opacity="0.5"/>
+                  <circle cx="13.5" cy="15" r="1.5" fill="currentColor" opacity="0.5"/>
+                  <path d="M12 5c0-1 .5-2 1-2.5s1-.5 1.5 0 .5 1.5 0 2-1 1-1.5 1.5" stroke="currentColor" strokeWidth="1.2" fill="none" strokeLinecap="round"/>
+                  <path d="M11 4l.5.5.5-.5" stroke="currentColor" strokeWidth="1" fill="none"/>
                 </svg>
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-3">Pomegranates</h3>
-              <p className="text-gray-600 text-sm">Specialized scheduling for emerging California pomegranate operations</p>
+              <p className="text-gray-600 text-sm leading-relaxed">Specialized scheduling for emerging California pomegranate operations</p>
             </div>
           </div>
         </div>
