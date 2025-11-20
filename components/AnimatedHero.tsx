@@ -97,7 +97,7 @@ export default function AnimatedHero() {
               <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 shadow-2xl">
                 <div className="flex items-center justify-between mb-6">
                   <div className="flex items-center gap-3">
-                    <div className="w-3 h-3 rounded-full bg-green-400 animate-pulse"></div>
+                    <div className="w-3 h-3 rounded-full bg-green-400"></div>
                     <span className="text-white font-semibold">Live System Status</span>
                   </div>
                   <span className="text-green-400 text-sm font-medium">All Systems Operational</span>
@@ -136,19 +136,19 @@ export default function AnimatedHero() {
                   <div className="space-y-2">
                     <div className="flex items-center gap-2">
                       <div className="h-1.5 flex-1 bg-white/10 rounded-full overflow-hidden">
-                        <div className="h-full bg-gradient-to-r from-blue-500 to-cyan-400 rounded-full animate-progress" style={{ width: '78%' }}></div>
+                        <div className="h-full bg-gradient-to-r from-blue-500 to-cyan-400 rounded-full" style={{ width: '78%' }}></div>
                       </div>
                       <span className="text-xs text-slate-400 w-12">Soil</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <div className="h-1.5 flex-1 bg-white/10 rounded-full overflow-hidden">
-                        <div className="h-full bg-gradient-to-r from-green-500 to-emerald-400 rounded-full animate-progress" style={{ width: '92%', animationDelay: '0.2s' }}></div>
+                        <div className="h-full bg-gradient-to-r from-green-500 to-emerald-400 rounded-full" style={{ width: '92%' }}></div>
                       </div>
                       <span className="text-xs text-slate-400 w-12">Weather</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <div className="h-1.5 flex-1 bg-white/10 rounded-full overflow-hidden">
-                        <div className="h-full bg-gradient-to-r from-amber-500 to-orange-400 rounded-full animate-progress" style={{ width: '85%', animationDelay: '0.4s' }}></div>
+                        <div className="h-full bg-gradient-to-r from-amber-500 to-orange-400 rounded-full" style={{ width: '85%' }}></div>
                       </div>
                       <span className="text-xs text-slate-400 w-12">Yield</span>
                     </div>
@@ -177,32 +177,15 @@ export default function AnimatedHero() {
 
       {/* AI Intelligence Teaser Section */}
       <section className="py-20 md:py-32 bg-gradient-to-br from-gray-900 via-green-900 to-emerald-900 relative overflow-hidden">
-        {/* Animated Grid Background */}
-        <div className="absolute inset-0 opacity-20">
+        {/* Static Grid Background */}
+        <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0" style={{
             backgroundImage: `
               linear-gradient(rgba(16, 185, 129, 0.3) 1px, transparent 1px),
               linear-gradient(90deg, rgba(16, 185, 129, 0.3) 1px, transparent 1px)
             `,
-            backgroundSize: '50px 50px',
-            animation: 'gridMove 20s linear infinite'
+            backgroundSize: '50px 50px'
           }}></div>
-        </div>
-
-        {/* Floating Particles Network */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          {[...Array(30)].map((_, i) => (
-            <div
-              key={`network-${i}`}
-              className="absolute w-1 h-1 bg-green-400/30 rounded-full"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animation: `networkFloat ${Math.random() * 5 + 3}s ease-in-out infinite`,
-                animationDelay: `${Math.random() * 3}s`
-              }}
-            />
-          ))}
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4">
@@ -314,41 +297,13 @@ export default function AnimatedHero() {
                   </div>
                 </div>
 
-                {/* Animated Data Streams - Smooth pulses along lines */}
+                {/* Static Data Connection Lines */}
                 <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 100 100" preserveAspectRatio="none">
                   {/* Static connection lines */}
-                  <line x1="15" y1="10" x2="50" y2="85" stroke="rgba(59, 130, 246, 0.2)" strokeWidth="0.5" />
-                  <line x1="85" y1="10" x2="50" y2="85" stroke="rgba(59, 130, 246, 0.2)" strokeWidth="0.5" />
-                  <line x1="15" y1="50" x2="50" y2="85" stroke="rgba(6, 182, 212, 0.2)" strokeWidth="0.5" />
-                  <line x1="85" y1="50" x2="50" y2="85" stroke="rgba(16, 185, 129, 0.2)" strokeWidth="0.5" />
-
-                  {/* Animated data pulses traveling along lines */}
-                  <circle r="1.5" fill="#3B82F6" opacity="0.8">
-                    <animateMotion dur="3s" repeatCount="indefinite">
-                      <mpath href="#path1"/>
-                    </animateMotion>
-                  </circle>
-                  <circle r="1.5" fill="#3B82F6" opacity="0.8">
-                    <animateMotion dur="3s" repeatCount="indefinite" begin="1s">
-                      <mpath href="#path2"/>
-                    </animateMotion>
-                  </circle>
-                  <circle r="1.5" fill="#06B6D4" opacity="0.8">
-                    <animateMotion dur="3.5s" repeatCount="indefinite" begin="0.5s">
-                      <mpath href="#path3"/>
-                    </animateMotion>
-                  </circle>
-                  <circle r="1.5" fill="#10B981" opacity="0.8">
-                    <animateMotion dur="3.5s" repeatCount="indefinite" begin="1.5s">
-                      <mpath href="#path4"/>
-                    </animateMotion>
-                  </circle>
-
-                  {/* Define paths for motion */}
-                  <path id="path1" d="M15,10 L50,85" fill="none" />
-                  <path id="path2" d="M85,10 L50,85" fill="none" />
-                  <path id="path3" d="M15,50 L50,85" fill="none" />
-                  <path id="path4" d="M85,50 L50,85" fill="none" />
+                  <line x1="15" y1="10" x2="50" y2="85" stroke="rgba(59, 130, 246, 0.3)" strokeWidth="0.5" />
+                  <line x1="85" y1="10" x2="50" y2="85" stroke="rgba(59, 130, 246, 0.3)" strokeWidth="0.5" />
+                  <line x1="15" y1="50" x2="50" y2="85" stroke="rgba(6, 182, 212, 0.3)" strokeWidth="0.5" />
+                  <line x1="85" y1="50" x2="50" y2="85" stroke="rgba(16, 185, 129, 0.3)" strokeWidth="0.5" />
                 </svg>
               </div>
             </div>
