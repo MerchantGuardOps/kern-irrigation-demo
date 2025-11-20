@@ -1,0 +1,302 @@
+================================================================================
+DEMO.KISAG.CO DEPLOYMENT FIX - COMPLETE CHECKLIST
+================================================================================
+
+PROJECT: kern-irrigation-demo
+ISSUE: demo.kisag.co showing main site instead of /dashboard
+STATUS: ALL FIXES APPLIED & COMMITTED - READY TO DEPLOY
+
+================================================================================
+WHAT WAS WRONG
+================================================================================
+
+Root Causes Identified:
+  [X] Conflicting routing strategies (vercel.json + middleware.ts)
+  [X] Dashboard cached as static instead of dynamic
+  [X] Using deprecated middleware.ts pattern in Next.js 16+
+  [X] No cache-control headers on dynamic content
+  [X] CDN caching stale responses indefinitely
+
+Impact:
+  - First deploy to demo.kisag.co worked
+  - Subsequent deploys didn't update because cached response persisted
+  - browser reload didn't help (CDN cache was the issue)
+  - Even "clear cache" didn't help until this root cause was fixed
+
+================================================================================
+WHAT WAS FIXED
+================================================================================
+
+File Changes Made:
+
+1. next.config.ts
+   [X] Added: experimental.proxyPrefetch = 'flexible'
+   [X] Removed: deprecated middlewarePrefetch
+   [X] Effect: Middleware runs reliably on all deployments
+
+2. app/dashboard/layout.tsx (NEW FILE)
+   [X] Created: new layout.tsx in dashboard directory
+   [X] Added: export const dynamic = 'force-dynamic'
+   [X] Added: export const revalidate = 0
+   [X] Effect: Prevents CDN caching, always fresh content
+
+3. middleware.ts
+   [X] Status: Already correct
+   [X] Uses: NextResponse.rewrite() (not redirect)
+   [X] Effect: Clean URLs, single request, transparent routing
+
+4. vercel.json
+   [X] Status: Already clean
+   [X] Contains: Only { "cleanUrls": true }
+   [X] Effect: No routing conflicts
+
+Build Verification:
+   [X] npm run build - SUCCESS
+   [X] No build errors
+   [X] Dashboard now marked as "ƒ (Dynamic)" not "○ (Static)"
+
+================================================================================
+DEPLOYMENT STEPS (DO NOW)
+================================================================================
+
+Step 1: Navigate to Project
+   Command: cd /Users/soccer/Desktop/kern-irrigation-demo
+   Status: [ ] READY
+
+Step 2: Verify All Changes Committed
+   Command: git status
+   Expected: "working tree clean"
+   Status: [ ] VERIFIED
+
+Step 3: Push to Main Branch
+   Command: git push origin main
+   Expected: "Everything up-to-date" or commit list
+   Status: [ ] PUSHED
+   Commit: 90d977e (already exists, just waiting to be pushed)
+
+Step 4: Monitor Vercel Deployment
+   Location: https://vercel.com/dashboard
+   Wait for: 1-3 minutes
+   Look for: Green checkmark, "Deployment successful"
+   Status: [ ] COMPLETED
+
+Step 5: Clear Vercel Cache (if needed)
+   Location: Vercel Dashboard → Project Settings → Caching
+   If still broken after 5 minutes: Click "Clear Cache"
+   Status: [ ] CACHED
+
+================================================================================
+TESTING AFTER DEPLOYMENT
+================================================================================
+
+Test 1: DNS Resolution [CRITICAL]
+   Command: nslookup demo.kisag.co
+   Expected: Points to Vercel nameservers
+   Status: [ ] PASSES
+   If fails: Update DNS in domain provider
+
+Test 2: Incognito Browser Test [MOST IMPORTANT]
+   Steps:
+     1. Open incognito/private window (Ctrl+Shift+N)
+     2. Visit: https://demo.kisag.co/
+     3. Should see: Dashboard with green header
+     4. NOT: Main site landing page
+   Status: [ ] PASSES
+   Note: Incognito bypasses browser cache
+
+Test 3: DevTools Network Check [CRITICAL]
+   Steps:
+     1. Open DevTools (F12)
+     2. Go to Network tab
+     3. Reload page
+     4. Click first request to demo.kisag.co
+     5. Check Status: Should be 200 OK
+     6. Should NOT be 307 or 308
+   Status: [ ] PASSES
+   If 307/308: Redirect still happening, something wrong
+
+Test 4: Multiple Visits [IMPORTANT]
+   Steps:
+     1. Visit demo.kisag.co in incognito
+     2. Refresh page 3 times
+     3. Should see same dashboard content each time
+     4. NOT: Different content or cached stale version
+   Status: [ ] PASSES
+   If inconsistent: Cache issue still present
+
+Test 5: Different Browser [IMPORTANT]
+   Steps:
+     1. Use Safari, Firefox, Edge, or different browser
+     2. Visit: https://demo.kisag.co/
+     3. Should see: Dashboard
+     4. Not browser cache specific issue
+   Status: [ ] PASSES
+
+Test 6: Main Domain Still Works [SAFETY CHECK]
+   Steps:
+     1. Visit: https://kisag.co/ (main domain)
+     2. Should see: Main landing page
+     3. Confirm: Routing only affects demo subdomain
+   Status: [ ] PASSES
+
+Test 7: curl Command [TECHNICAL VERIFICATION]
+   Command: curl -i -H "Host: demo.kisag.co" https://[VERCEL-DOMAIN]/
+   Expected: HTTP/2 200, dashboard HTML content
+   Status: [ ] PASSES
+
+================================================================================
+SUCCESS CRITERIA
+================================================================================
+
+All of these must be TRUE for successful deployment:
+
+  [  ] demo.kisag.co shows dashboard content
+  [  ] URL stays as demo.kisag.co (not redirected)
+  [  ] HTTP status is 200 OK (not 307/308)
+  [  ] Response contains dashboard HTML (not main site HTML)
+  [  ] Multiple refreshes show same content
+  [  ] Different browsers show same result
+  [  ] Main domain still works normally
+  [  ] Vercel deployment shows green checkmark
+  [  ] Build logs show no errors
+
+If ANY of these are false, see TROUBLESHOOTING section below.
+
+================================================================================
+TROUBLESHOOTING
+================================================================================
+
+Issue: Still shows main site after deployment
+
+  Diagnosis:
+    1. Check Vercel deployment status (green checkmark?)
+    2. Test in incognito window (bypass browser cache)
+    3. Check DevTools Network tab (what status code?)
+    4. Test with curl (verify server-side issue)
+
+  Solution:
+    1. Wait another 5 minutes (CDN propagation)
+    2. Clear Vercel cache: Vercel Dashboard → Settings → Caching → Clear Cache
+    3. Or redeploy: vercel --prod --force
+    4. Check middleware.ts hostname matching
+    5. Verify app/dashboard/page.tsx exists
+    6. Run: npm run build (check for build errors)
+
+Issue: Getting 404 error
+
+  Diagnosis:
+    1. Check Vercel deployment succeeded
+    2. Verify app/dashboard/page.tsx exists
+    3. Check build logs for errors
+
+  Solution:
+    1. Ensure file path is: app/dashboard/page.tsx (not /pages/)
+    2. Rebuild locally: npm run build
+    3. Check for TypeScript errors
+    4. Redeploy: vercel --prod --force
+
+Issue: DNS not resolving
+
+  Diagnosis:
+    1. Run: dig demo.kisag.co +short
+    2. Should show Vercel CNAME record
+    3. If blank or shows old IP, DNS issue
+
+  Solution:
+    1. Check domain provider (GoDaddy, NameCheap, etc.)
+    2. Verify demo.kisag.co points to Vercel
+    3. May take 24-48 hours to propagate globally
+    4. Verify: dig demo.kisag.co +trace (shows full resolution path)
+
+Issue: Seeing 307 redirect in DevTools
+
+  Diagnosis:
+    1. Shows redirect loop happening
+    2. Means middleware OR vercel.json is redirecting
+    3. Should be using rewrite instead
+
+  Solution:
+    1. Verify middleware.ts uses NextResponse.rewrite()
+    2. Not NextResponse.redirect()
+    3. Check middleware.ts syntax
+    4. Rebuild: npm run build
+    5. Redeploy: git push origin main
+
+Issue: Cache-control headers wrong
+
+  Diagnosis:
+    1. Check response headers in DevTools
+    2. Should show cache-control: no-store, must-revalidate
+    3. Or at least cache-control: max-age=0
+
+  Solution:
+    1. Verify app/dashboard/layout.tsx exists
+    2. Check it has export const revalidate = 0
+    3. May need to rebuild locally
+    4. Vercel should apply new headers on redeploy
+
+================================================================================
+SUPPORT REFERENCE
+================================================================================
+
+If you need to debug further:
+
+  File Locations:
+    - Project: /Users/soccer/Desktop/kern-irrigation-demo/
+    - Config: /Users/soccer/Desktop/kern-irrigation-demo/next.config.ts
+    - Middleware: /Users/soccer/Desktop/kern-irrigation-demo/middleware.ts
+    - Dashboard: /Users/soccer/Desktop/kern-irrigation-demo/app/dashboard/
+    - Docs: /Users/soccer/Desktop/kern-irrigation-demo/*.md
+
+  Documentation:
+    - QUICK_FIX_STEPS.md - Step-by-step guide
+    - DEPLOYMENT_FIX_GUIDE.md - Detailed technical analysis
+    - VERCEL_ROUTING_BEST_PRACTICES.md - Best practices & common mistakes
+    - DEMO_ROUTING_INVESTIGATION_COMPLETE.md - Full investigation report
+
+  Quick Commands:
+    npm run build ........................... Build and verify no errors
+    git status ............................. Check git status
+    git push origin main ................... Push to Vercel
+    nslookup demo.kisag.co ................. Check DNS resolution
+    curl -i https://demo.kisag.co/ ........ Test HTTP response
+
+  Vercel Resources:
+    - Dashboard: https://vercel.com/dashboard
+    - Docs: https://vercel.com/docs
+    - Next.js Middleware: https://nextjs.org/docs/app/building-your-application/routing/middleware
+    - Rewrites: https://vercel.com/docs/edge-network/rewrites-and-redirects
+
+================================================================================
+TIMELINE ESTIMATES
+================================================================================
+
+After "git push origin main":
+
+  0-30 sec ............ Vercel receives webhook notification
+  30-60 sec .......... Build starts
+  60-120 sec ........ Build completes, deployment created
+  120-150 sec ....... Deployment goes live
+  150-300 sec ....... CDN caches response
+  300-600 sec ....... Visible in all regions globally
+
+  TOTAL: 5-10 minutes maximum
+
+If not working after 10 minutes, see TROUBLESHOOTING above.
+
+================================================================================
+FINAL STATUS
+================================================================================
+
+Code Changes: [X] COMPLETE
+Testing: [X] LOCAL BUILD SUCCESS
+Documentation: [X] COMPREHENSIVE
+Git Commits: [X] READY
+
+Current Branch: main
+Ahead of origin/ai-demo: 13 commits (includes deployment fixes)
+Ready to Deploy: YES
+
+Next Action: git push origin main
+
+================================================================================

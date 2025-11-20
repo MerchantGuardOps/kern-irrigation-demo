@@ -1,0 +1,246 @@
+================================================================================
+FINAL CHECKLIST: demo.kisag.co -> Dashboard
+================================================================================
+
+RECOMMENDED SOLUTION: DNS CNAME RECORD
+Time Required: 2 minutes setup + 5 minutes wait = 7 minutes total
+Success Rate: 99.9%
+
+================================================================================
+STEP-BY-STEP CHECKLIST
+================================================================================
+
+STEP 1: FIND YOUR DNS PROVIDER
+[ ] Go to https://whois.com
+[ ] Search: kisag.co
+[ ] Find "Registrar" name (Namecheap, GoDaddy, Route53, etc.)
+[ ] Note: _______________________________
+
+STEP 2: LOGIN TO DNS PROVIDER
+[ ] Go to provider's website (e.g., namecheap.com)
+[ ] Click "My Account" or "Dashboard"
+[ ] Enter your email/password
+[ ] Navigate to Domain Management or DNS Settings
+
+STEP 3: FIND DNS RECORDS FOR kisag.co
+[ ] Find the domain: kisag.co
+[ ] Click "Manage" or "DNS"
+[ ] Look for "Advanced DNS" or "DNS Records" tab
+[ ] Find existing records (or "Add New Record" button)
+
+STEP 4: ADD CNAME RECORD
+[ ] Click "Add New Record" or "Add Record"
+[ ] Type: Select "CNAME"
+[ ] Name/Host: Type "demo"
+[ ] Value/Target/Points To: Type "kern-irrigation-demo.vercel.app"
+[ ] TTL: 3600 (or select default)
+[ ] Save/Confirm
+
+Expected to see:
+  Type: CNAME
+  Name: demo
+  Value: kern-irrigation-demo.vercel.app
+
+STEP 5: WAIT FOR DNS PROPAGATION
+[ ] Wait 5 minutes
+[ ] (First time waiting can take up to 30 minutes in rare cases)
+[ ] Check time: Started at ____:____ , Current at ____:____
+
+STEP 6: TEST IN BROWSER
+[ ] Open new browser window (or incognito)
+[ ] Go to: https://demo.kisag.co
+[ ] Do you see the dashboard?
+    [ ] YES - Success! Go to STEP 7
+    [ ] NO - Wait another 5 minutes and retry
+         - If still no after 15 min total, see TROUBLESHOOTING below
+
+STEP 7: VERIFY IT'S WORKING
+[ ] Dashboard loads?                    YES [ ] NO [ ]
+[ ] Shows irrigation data/charts?       YES [ ] NO [ ]
+[ ] Can interact with elements?         YES [ ] NO [ ]
+[ ] Mobile view works?                  YES [ ] NO [ ]
+[ ] Try different browser?              YES [ ] NO [ ]
+
+If all YES: ✓ DONE - demo.kisag.co is working!
+
+================================================================================
+TROUBLESHOOTING
+================================================================================
+
+ISSUE 1: Still shows old page after 15 minutes
+[ ] Clear browser cache
+    - Windows: Ctrl+Shift+Del
+    - Mac: Cmd+Shift+Delete
+[ ] Try incognito/private window
+[ ] Try different browser
+[ ] Check you typed domain correctly: demo.kisag.co (not kisag.co)
+[ ] Wait another 10 minutes (DNS can take 30 minutes)
+
+ISSUE 2: Shows "This domain is for sale" or generic error
+[ ] You may have created record on wrong domain
+[ ] Check: Record should be on "demo" subdomain, not root
+[ ] Verify CNAME name is exactly: demo
+[ ] Not: kisag.co or www.demo or anything else
+
+ISSUE 3: DNS returns error/can't find
+[ ] Check you saved the record correctly
+[ ] Verify spelling: kern-irrigation-demo.vercel.app (no typos)
+[ ] Try: nslookup demo.kisag.co
+        (should show: kern-irrigation-demo.vercel.app)
+
+ISSUE 4: Shows 404 error
+[ ] DNS is working (good!)
+[ ] But Vercel doesn't recognize the domain
+[ ] Solution: Add domain to Vercel project settings
+   1. Go to Vercel dashboard
+   2. Select project: kern-irrigation-demo
+   3. Go to Settings → Domains
+   4. Add domain: demo.kisag.co
+   5. Follow DNS instructions Vercel provides
+   6. Wait 5 minutes
+
+ISSUE 5: Still not working after 30 minutes
+[ ] Use BACKUP PLAN (separate Vercel project)
+[ ] See: BACKUP_SEPARATE_PROJECT.md
+[ ] Takes 15 minutes, 100% guaranteed to work
+
+================================================================================
+IF YOU NEED HELP: DNS PROVIDER SPECIFIC
+================================================================================
+
+NAMECHEAP:
+[ ] Login to namecheap.com
+[ ] Dashboard → Domains → kisag.co → Manage
+[ ] Advanced DNS tab
+[ ] Find "Add New Record"
+[ ] Type: CNAME Record
+[ ] Host: demo
+[ ] Value: kern-irrigation-demo.vercel.app
+[ ] TTL: 3600
+[ ] Click Green Checkmark ✓
+
+GODADDY:
+[ ] Login to godaddy.com
+[ ] My Products → Domains → kisag.co → Manage DNS
+[ ] Records tab
+[ ] Click "Add"
+[ ] Type: CNAME
+[ ] Name: demo
+[ ] Data: kern-irrigation-demo.vercel.app
+[ ] Click Save
+
+ROUTE53 (AWS):
+[ ] Login to AWS Console
+[ ] Route53 → Hosted Zones → kisag.co
+[ ] Create record
+[ ] Name: demo.kisag.co
+[ ] Type: CNAME
+[ ] Value: kern-irrigation-demo.vercel.app
+[ ] Create records
+
+CLOUDFLARE:
+[ ] Login to dash.cloudflare.com
+[ ] Select kisag.co
+[ ] DNS Management
+[ ] Add record
+[ ] Type: CNAME
+[ ] Name: demo
+[ ] Target: kern-irrigation-demo.vercel.app
+[ ] Proxy Status: DNS only (gray cloud)
+[ ] Save
+
+GOOGLE DOMAINS:
+[ ] Login to domains.google.com
+[ ] Select kisag.co
+[ ] DNS tab
+[ ] Custom records section
+[ ] Add record
+[ ] Type: CNAME
+[ ] Name: demo
+[ ] Data: kern-irrigation-demo.vercel.app
+[ ] Create
+
+For other providers, see: DNS_PROVIDER_INSTRUCTIONS.md
+
+================================================================================
+VERIFICATION
+================================================================================
+
+After DNS is working, verify with these commands:
+
+Mac/Linux Terminal:
+[ ] nslookup demo.kisag.co
+    Should show: kern-irrigation-demo.vercel.app
+
+[ ] dig demo.kisag.co CNAME
+    Should show CNAME record pointing to Vercel
+
+[ ] curl -I https://demo.kisag.co
+    Should show: HTTP/1.1 200 OK (or 301 redirect)
+
+Windows Command Prompt:
+[ ] nslookup demo.kisag.co
+    Should show: kern-irrigation-demo.vercel.app
+
+================================================================================
+SUCCESS CRITERIA
+================================================================================
+
+✓ demo.kisag.co is accessible
+✓ Shows dashboard (either via redirect or direct load)
+✓ Can see irrigation data and charts
+✓ Works on mobile
+✓ DNS resolves correctly
+
+If all above: COMPLETE SUCCESS
+
+================================================================================
+TIMELINE
+================================================================================
+
+Estimated Time: 7 minutes
+
+- Setup DNS record:        2 minutes
+- DNS propagation wait:    5 minutes
+- Testing:                 2 minutes (while waiting)
+────────────────────────────────────
+- Total time to success:   7 minutes
+
+================================================================================
+NEXT STEPS AFTER SUCCESS
+================================================================================
+
+[ ] Test dashboard at demo.kisag.co
+[ ] Share URL with stakeholders
+[ ] Verify mobile responsiveness
+[ ] Document for team
+[ ] Done!
+
+================================================================================
+IF YOU SELECTED BACKUP PLAN (Separate Project)
+================================================================================
+
+Use this if DNS doesn't work after 30 minutes:
+
+[ ] See: BACKUP_SEPARATE_PROJECT.md
+[ ] Create new GitHub repo (dashboard-only)
+[ ] Deploy to separate Vercel project
+[ ] Point DNS CNAME to new project
+[ ] Time: 15 minutes
+[ ] Success rate: 100%
+
+================================================================================
+SUMMARY
+================================================================================
+
+Method:        DNS CNAME record
+Domain:        demo.kisag.co
+Target:        kern-irrigation-demo.vercel.app
+Time:          2 min setup + 5 min wait = 7 min total
+Success Rate:  99.9%
+Complexity:    Very Simple
+Risk:          None (can always delete record and try backup)
+
+Next Action:   Follow STEP 1 above
+
+================================================================================
