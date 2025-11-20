@@ -576,7 +576,7 @@ export default function Dashboard() {
                     -0.2 in
                   </span>
                 </div>
-                <div style={{ height: '8px', background: '#F5F5F5', border: '2px solid: '#E0E0E0', borderRadius: '4px', overflow: 'hidden' }}>
+                <div style={{ height: '8px', background: '#F5F5F5', border: '2px solid #E0E0E0', borderRadius: '4px', overflow: 'hidden' }}>
                   <div style={{ width: '20%', height: '100%', background: '#FF6D00' }}></div>
                 </div>
               </div>
