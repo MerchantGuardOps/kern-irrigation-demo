@@ -153,12 +153,6 @@ export default function AnimatedHero() {
 
         <div className="relative z-10 max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 bg-green-500/20 border border-green-400/30 backdrop-blur-sm rounded-full px-6 py-3 mb-6">
-              <svg className="w-5 h-5 text-green-400 animate-spin-slow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-              </svg>
-              <span className="text-green-200 font-semibold text-sm md:text-base">Coming Soon</span>
-            </div>
             <h2 className="text-4xl md:text-6xl font-bold text-white mb-6">
               Irrigation Intelligence
             </h2>
@@ -169,77 +163,114 @@ export default function AnimatedHero() {
 
           {/* EPIC Animated Field Visualization */}
           <div className="flex flex-col lg:flex-row items-center gap-12 mb-16 max-w-7xl mx-auto">
-            {/* Left: Animated Field System */}
+            {/* Left: Animated Agricultural Field */}
             <div className="w-full lg:w-1/2 relative">
-              <div className="relative w-full aspect-square max-w-md mx-auto">
-                {/* Center Core - Field AI Brain */}
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center shadow-2xl shadow-green-500/50 animate-pulse-glow">
-                  <div className="text-center">
-                    <svg className="w-16 h-16 text-white mb-2 animate-pulse-soft" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                    </svg>
-                    <div className="text-white text-xs font-bold">AI Core</div>
-                  </div>
-                  <div className="absolute inset-0 border-2 border-white/30 rounded-2xl animate-ping-slow"></div>
+              <div className="relative w-full max-w-lg mx-auto bg-gradient-to-br from-green-800 via-green-700 to-green-900 rounded-3xl p-8 shadow-2xl overflow-hidden" style={{ minHeight: '400px' }}>
+                {/* Field Rows Pattern */}
+                <div className="absolute inset-0 opacity-20">
+                  {[...Array(8)].map((_, i) => (
+                    <div
+                      key={`row-${i}`}
+                      className="absolute w-full h-2 bg-green-600"
+                      style={{
+                        top: `${(i + 1) * 11}%`,
+                        animation: `shimmer ${3 + i * 0.3}s ease-in-out infinite`,
+                        animationDelay: `${i * 0.2}s`
+                      }}
+                    />
+                  ))}
                 </div>
 
-                {/* Orbiting Field Sensors */}
-                {[
-                  { name: 'Soil', icon: 'M3 12h18M3 6h18M3 18h18', color: 'amber', angle: 0 },
-                  { name: 'Weather', icon: 'M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z', color: 'blue', angle: 72 },
-                  { name: 'Water', icon: 'M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343', color: 'cyan', angle: 144 },
-                  { name: 'Yield', icon: 'M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z', color: 'green', angle: 216 },
-                  { name: 'Crop', icon: 'M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1', color: 'emerald', angle: 288 }
-                ].map((sensor, i) => (
+                {/* Tree Icons - Almond/Pistachio Orchard */}
+                {[...Array(12)].map((_, i) => (
                   <div
-                    key={sensor.name}
-                    className="absolute top-1/2 left-1/2"
+                    key={`tree-${i}`}
+                    className="absolute"
                     style={{
-                      animation: `orbit ${20 + i * 2}s linear infinite`,
-                      animationDelay: `${i * 0.8}s`
+                      left: `${15 + (i % 4) * 22}%`,
+                      top: `${20 + Math.floor(i / 4) * 25}%`,
                     }}
                   >
-                    <div className={`w-20 h-20 bg-${sensor.color}-500 rounded-xl shadow-lg shadow-${sensor.color}-500/50 flex flex-col items-center justify-center transform -translate-x-10 -translate-y-10 hover:scale-110 transition-transform backdrop-blur-sm bg-opacity-90`}>
-                      <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={sensor.icon} />
-                      </svg>
-                      <div className="text-white text-xs font-semibold mt-1">{sensor.name}</div>
-                    </div>
+                    <svg className="w-8 h-8 md:w-10 md:h-10 text-green-300 opacity-70" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 2C9.24 2 7 4.24 7 7c0 1.82.98 3.41 2.44 4.28-.08.23-.14.47-.14.72 0 1.1.9 2 2 2h1v7h-1c-.55 0-1 .45-1 1s.45 1 1 1h4c.55 0 1-.45 1-1s-.45-1-1-1h-1v-7h1c1.1 0 2-.9 2-2 0-.25-.06-.49-.14-.72C16.02 10.41 17 8.82 17 7c0-2.76-2.24-5-5-5z"/>
+                    </svg>
                   </div>
                 ))}
 
-                {/* Data Connection Lines */}
-                <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 400 400">
-                  {[0, 72, 144, 216, 288].map((angle, i) => {
-                    const rad = (angle * Math.PI) / 180;
-                    const x = 200 + Math.cos(rad) * 120;
-                    const y = 200 + Math.sin(rad) * 120;
-                    return (
-                      <line
-                        key={i}
-                        x1="200"
-                        y1="200"
-                        x2={x}
-                        y2={y}
-                        stroke="rgba(16, 185, 129, 0.3)"
-                        strokeWidth="2"
-                        strokeDasharray="4 4"
-                        className="animate-pulse-flow"
-                        style={{ animationDelay: `${i * 0.3}s` }}
-                      />
-                    );
-                  })}
+                {/* AI Processing Center - Bottom Center */}
+                <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+                  <div className="bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl p-4 shadow-xl shadow-blue-500/50 backdrop-blur-sm border-2 border-blue-300/30 animate-pulse-glow">
+                    <div className="text-center">
+                      <svg className="w-10 h-10 text-white mx-auto mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                      </svg>
+                      <div className="text-white text-xs font-bold">AI</div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Field Sensors - Strategically Placed */}
+                {/* Top Left - Soil Sensor */}
+                <div className="absolute top-6 left-6 group">
+                  <div className="w-14 h-14 md:w-16 md:h-16 bg-amber-500 rounded-xl shadow-lg shadow-amber-500/50 flex flex-col items-center justify-center hover:scale-110 transition-all duration-300 backdrop-blur-sm bg-opacity-90 border-2 border-amber-300/30">
+                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12h18M3 6h18M3 18h18" />
+                    </svg>
+                    <div className="text-white text-[10px] font-semibold">Soil</div>
+                  </div>
+                  <div className="absolute inset-0 bg-amber-400 rounded-xl animate-ping opacity-30"></div>
+                </div>
+
+                {/* Top Right - Weather Sensor */}
+                <div className="absolute top-6 right-6 group">
+                  <div className="w-14 h-14 md:w-16 md:h-16 bg-blue-500 rounded-xl shadow-lg shadow-blue-500/50 flex flex-col items-center justify-center hover:scale-110 transition-all duration-300 backdrop-blur-sm bg-opacity-90 border-2 border-blue-300/30">
+                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+                    </svg>
+                    <div className="text-white text-[10px] font-semibold">Weather</div>
+                  </div>
+                  <div className="absolute inset-0 bg-blue-400 rounded-xl animate-ping opacity-30" style={{ animationDelay: '0.5s' }}></div>
+                </div>
+
+                {/* Middle Left - Water Sensor */}
+                <div className="absolute top-1/2 left-6 transform -translate-y-1/2 group">
+                  <div className="w-14 h-14 md:w-16 md:h-16 bg-cyan-500 rounded-xl shadow-lg shadow-cyan-500/50 flex flex-col items-center justify-center hover:scale-110 transition-all duration-300 backdrop-blur-sm bg-opacity-90 border-2 border-cyan-300/30">
+                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343" />
+                    </svg>
+                    <div className="text-white text-[10px] font-semibold">Water</div>
+                  </div>
+                  <div className="absolute inset-0 bg-cyan-400 rounded-xl animate-ping opacity-30" style={{ animationDelay: '1s' }}></div>
+                </div>
+
+                {/* Middle Right - Yield Sensor */}
+                <div className="absolute top-1/2 right-6 transform -translate-y-1/2 group">
+                  <div className="w-14 h-14 md:w-16 md:h-16 bg-emerald-500 rounded-xl shadow-lg shadow-emerald-500/50 flex flex-col items-center justify-center hover:scale-110 transition-all duration-300 backdrop-blur-sm bg-opacity-90 border-2 border-emerald-300/30">
+                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                    </svg>
+                    <div className="text-white text-[10px] font-semibold">Yield</div>
+                  </div>
+                  <div className="absolute inset-0 bg-emerald-400 rounded-xl animate-ping opacity-30" style={{ animationDelay: '1.5s' }}></div>
+                </div>
+
+                {/* Data Flow Lines to AI Center */}
+                <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 100 100" preserveAspectRatio="none">
+                  <line x1="15" y1="10" x2="50" y2="85" stroke="rgba(59, 130, 246, 0.3)" strokeWidth="0.5" strokeDasharray="2 2" className="animate-pulse-flow" />
+                  <line x1="85" y1="10" x2="50" y2="85" stroke="rgba(59, 130, 246, 0.3)" strokeWidth="0.5" strokeDasharray="2 2" className="animate-pulse-flow" style={{ animationDelay: '0.3s' }} />
+                  <line x1="15" y1="50" x2="50" y2="85" stroke="rgba(6, 182, 212, 0.3)" strokeWidth="0.5" strokeDasharray="2 2" className="animate-pulse-flow" style={{ animationDelay: '0.6s' }} />
+                  <line x1="85" y1="50" x2="50" y2="85" stroke="rgba(16, 185, 129, 0.3)" strokeWidth="0.5" strokeDasharray="2 2" className="animate-pulse-flow" style={{ animationDelay: '0.9s' }} />
                 </svg>
 
                 {/* Floating Data Particles */}
-                {[...Array(15)].map((_, i) => (
+                {[...Array(8)].map((_, i) => (
                   <div
-                    key={`particle-${i}`}
-                    className="absolute w-2 h-2 bg-green-400 rounded-full opacity-60"
+                    key={`data-${i}`}
+                    className="absolute w-1.5 h-1.5 bg-blue-400 rounded-full opacity-60"
                     style={{
-                      left: `${Math.random() * 100}%`,
-                      top: `${Math.random() * 100}%`,
-                      animation: `float ${Math.random() * 3 + 2}s ease-in-out infinite`,
+                      left: `${20 + Math.random() * 60}%`,
+                      top: `${20 + Math.random() * 40}%`,
+                      animation: `float ${2 + Math.random() * 2}s ease-in-out infinite`,
                       animationDelay: `${Math.random() * 2}s`
                     }}
                   />
