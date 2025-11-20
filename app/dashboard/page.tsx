@@ -448,60 +448,8 @@ export default function Dashboard() {
           </div>
         </div>
 
-        {/* AI Model Stack & SHAP Explainability */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
-
-          {/* PPO Deep RL Agent Status */}
-          <div style={{
-            background: '#FFFFFF',
-            border: '3px solid #121212',
-            borderRadius: '16px',
-            padding: '24px',
-            boxShadow: '0 6px 16px rgba(0,0,0,0.25)'
-          }}>
-            <h3 style={{ color: '#000000', fontSize: '20px', fontWeight: '700', marginBottom: '16px' }}>
-              AI Model Activity (Live)
-            </h3>
-
-            <div className="space-y-4">
-              {[
-                { name: 'PPO Deep RL Agent', desc: 'Irrigation decision engine', progress: 94, color: '#2E7D32' },
-                { name: 'XGBoost Regressor', desc: 'Virtual SWP sensor', progress: 92, color: '#005599' },
-                { name: 'Bi-LSTM Network', desc: 'Data imputation (temporal)', progress: 88, color: '#FF6D00' },
-                { name: 'AquaCrop-OSPy', desc: 'Digital twin simulator', progress: 96, color: '#1B5E20' },
-              ].map((model, i) => (
-                <div key={i}>
-                  <div className="flex items-center justify-between mb-2">
-                    <div>
-                      <p style={{ color: '#000000', fontSize: '16px', fontWeight: '700' }}>
-                        {model.name}
-                      </p>
-                      <p style={{ color: '#546E7A', fontSize: '12px' }}>
-                        {model.desc}
-                      </p>
-                    </div>
-                    <span style={{ color: '#000000', fontSize: '20px', fontWeight: '700' }}>
-                      {model.progress}%
-                    </span>
-                  </div>
-                  <div style={{
-                    height: '12px',
-                    background: '#F5F5F5',
-                    border: '2px solid #121212',
-                    borderRadius: '6px',
-                    overflow: 'hidden'
-                  }}>
-                    <div style={{
-                      width: `${model.progress}%`,
-                      height: '100%',
-                      background: model.color,
-                      transition: 'width 1s ease-in-out'
-                    }}></div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+        {/* SHAP Explainability */}
+        <div className="grid grid-cols-1 gap-6 mb-6">
 
           {/* SHAP Explainability - Feature Attribution */}
           <div style={{
